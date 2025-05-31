@@ -13,4 +13,10 @@ export default new DataSource({
   database: process.env.DB_DATABASE,
   entities: [User, Product, Order],
   migrations: ['src/migration/*.ts'],
+  ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
 }); 
