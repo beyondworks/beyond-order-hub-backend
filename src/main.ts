@@ -7,7 +7,11 @@ async function bootstrap() {
 
   // CORS 설정
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: [
+      'http://localhost:3000',
+      'https://beyondworks.github.io',
+      'https://beyondworks.github.io/beyond-order-hub-frontend'
+    ],
     credentials: true,
   });
 
