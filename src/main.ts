@@ -43,14 +43,14 @@ async function createDefaultUsers(dataSource: DataSource) {
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // CORS 설정
+  // CORS 설정 (프론트엔드 개발자 참고)
   app.enableCors({
     origin: [
-      'http://localhost:3000',
-      'https://beyondworks.github.io',
-      'https://beyondworks.github.io/beyond-order-hub-frontend'
+      'https://beyondworks.github.io', // GitHub Pages 프론트엔드
     ],
-    credentials: true,
+    credentials: true, // 인증정보(쿠키 등) 허용
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type,Authorization',
   });
 
   // Swagger 설정
