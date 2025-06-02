@@ -11,7 +11,10 @@ export class OrdersService {
   ) {}
 
   async findAll(): Promise<Order[]> {
-    return this.ordersRepository.find();
+    return this.ordersRepository.find({
+      order: { dateTime: 'DESC' },
+      take: 100,
+    });
   }
 
   async findOne(id: string): Promise<Order> {

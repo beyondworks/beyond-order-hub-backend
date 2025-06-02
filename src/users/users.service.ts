@@ -24,7 +24,7 @@ export class UsersService {
   }
 
   async findAll(): Promise<Omit<User, 'password'>[]> {
-    const users = await this.usersRepository.find();
+    const users = await this.usersRepository.find({ where: { isActive: true } });
     return users.map(({ password, ...rest }) => rest);
   }
 

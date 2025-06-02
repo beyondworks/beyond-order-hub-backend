@@ -11,7 +11,12 @@ export class ProductsService {
   ) {}
 
   async findAll(): Promise<Product[]> {
-    return this.productsRepository.find();
+    return this.productsRepository.find({
+      where: [
+        { status: '판매중' },
+        { status: '품절' }
+      ]
+    });
   }
 
   async findOne(id: string): Promise<Product> {
